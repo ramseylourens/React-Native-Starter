@@ -1,4 +1,9 @@
 # React Native Cross-platform Apps
+
+<p align="center">
+  <img src="public/assets/logo.png" alt="React Native Cross-platform Apps" width="100%" />
+</p>
+
 Starter project for iOS, Android, macOS, Windows, Linux, and web.
 
 ## Requirements
