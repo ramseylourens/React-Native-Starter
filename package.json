@@ -11,8 +11,8 @@
     "ios:pod:install": "cd ios && pod install",
     "macos": "react-native run-macos",
     "macos:pod:install": "cd macos && pod install",
-    "ios:build:archive": "xcodebuild clean archive -workspace ios/rnStarter.xcworkspace -scheme rnStarter -archivePath ios/build/archive/rnStarter.xcarchive | xcpretty",
-    "ios:build:ipa": "xcodebuild -exportArchive -archivePath ios/build/archive/rnStarter.xcarchive -exportPath ios/build/export -exportOptionsPlist ios/rnStarter/ExportOptions.plist | xcpretty",
+    "ios:build:archive": "xcodebuild clean archive -workspace ios/ReactNativeStarter.xcworkspace -scheme ReactNativeStarter -archivePath ios/build/archive/ReactNativeStarter.xcarchive | xcpretty",
+    "ios:build:ipa": "xcodebuild -exportArchive -archivePath ios/build/archive/ReactNativeStarter.xcarchive -exportPath ios/build/export -exportOptionsPlist ios/ReactNativeStarter/ExportOptions.plist | xcpretty",
     "ios:build:ipa:list": "ls -la ios/build/export",
     "android": "react-native run-android",
     "android:device": "adb -s $DEVICE reverse tcp:8081 tcp:8081 && react-native run-android --deviceId $DEVICE",
@@ -114,8 +114,8 @@
   },
   "react-native-windows": {
     "init-windows": {
-      "name": "rnStarter",
-      "namespace": "rnStarter",
+      "name": "ReactNativeStarter",
+      "namespace": "ReactNativeStarter",
       "template": "cpp-app"
     }
   }

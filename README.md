@@ -42,7 +42,7 @@ yarn windows
 yarn web:dev
 ```
 
-`yarn macos` requires macOS. `yarn windows` requires Windows and Visual Studio. For Windows packaging, open `windows/rnStarter.sln` in Visual Studio and build the Release configuration. The native desktop targets were initialized with React Native Windows' New Architecture template.
+`yarn macos` requires macOS. `yarn windows` requires Windows and Visual Studio. For Windows packaging, open `windows/ReactNativeStarter.sln` in Visual Studio and build the Release configuration. The native desktop targets were initialized with React Native Windows' New Architecture template.
 
 ## Linux
 The Linux app is the web build packaged in an Electron shell located in `linux/` (not native UI).

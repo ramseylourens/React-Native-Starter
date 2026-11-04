@@ -1,5 +1,5 @@
-appId: com.rnstarter.desktop
-productName: rnStarter
+appId: com.reactnativestarter.desktop
+productName: React Native Starter
 directories:
   output: dist
 files:
@@ -13,4 +13,4 @@ linux:
     - AppImage
     - deb
   category: Utility
-  maintainer: rnStarter maintainers <maintainers@example.com>
+  maintainer: React Native Starter maintainers <maintainers@example.com>
