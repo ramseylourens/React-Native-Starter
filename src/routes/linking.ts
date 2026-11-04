@@ -1,7 +1,7 @@
 /** Link prefixes/domains for deep linking */
 const linkingPrefixes = [
-  'https://rnStarter.app',
-  'rnStarter://',
+  'https://reactnativestarter.app',
+  'ReactNativeStarter://',
 ];
 
 // FIXME: Better type

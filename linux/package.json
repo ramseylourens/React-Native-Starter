@@ -1,11 +1,11 @@
 {
-  "name": "rnstarter-linux",
+  "name": "reactnativestarter-linux",
   "version": "0.0.1",
   "private": true,
-  "description": "Linux desktop shell for the rnStarter web build",
-  "author": "rnStarter",
+  "description": "Linux desktop shell for the React Native Starter web build",
+  "author": "React Native Starter",
   "homepage": "https://github.com/turbothinh/react-native-cross-platform-starter",
-  "desktopName": "rnStarter.desktop",
+  "desktopName": "ReactNativeStarter.desktop",
   "main": "main.js",
   "scripts": {
     "sync": "rm -rf app && cp -R ../.dist app",
