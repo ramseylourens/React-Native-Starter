@@ -1,6 +1,6 @@
 {
-  "name": "rnStarter",
-  "version": "0.0.1",
+  "name": "ReactNativeStarter",
+  "version": "1.0",
   "private": false,
   "scripts": {
     "app:start": "react-native start",
@@ -36,7 +36,7 @@
     "test:update": "jest --verbose --coverage --updateSnapshot",
     "test:watch": "jest --verbose --watch",
     "test:coverage": "jest --verbose --coverage && open ./.coverage/lcov-report/index.html",
-    "generate:icon": "npx app-icon generate -i public/assets/icon.png",
+    "generate:icon": "npx app-icon generate -i public/assets/Icon.png",
     "util:icons": "chrome https://akveo.github.io/eva-icons/#/",
     "test:windows": "jest --config jest.config.windows.js"
   },

@@ -95,7 +95,7 @@ module.exports = {
       patterns: [
         { from: 'web/robot.txt', to: 'robot.txt' },
         { from: 'web/favicon.ico', to: 'favicon.ico' },
-        { from: 'public/assets/icon.png', to: 'icon.png' },
+        { from: 'public/assets/Icon.png', to: 'Icon.png' },
       ]
     }),
 
