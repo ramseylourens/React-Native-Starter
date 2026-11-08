@@ -33,6 +33,13 @@ const config = {
       new RegExp(`${rnwPath}/target/.*`),
       /.*\.ProjectImports\.zip/,
     ],
+    // Custom platform aliases for grouped platform targeting
+    // .mobile.tsx resolves to ios/android
+    // .desktop.tsx resolves to windows/macos/linux
+    platformAliases: {
+      mobile: ['ios', 'android'],
+      desktop: ['windows', 'macos', 'linux'],
+    },
     //
   },
   transformer: {
