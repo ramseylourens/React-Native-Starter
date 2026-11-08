@@ -2,13 +2,20 @@ node_modules/
 .DS_Store
 .dist/
 .jest/
+
+# Build artifacts
 macos/build/
 ios/build/
 android/build/
 android/app/build/
+
+# Gradle files (Android build system)
 android/.gradle/
-/node_modules
-/node_modules/@react-native
+android/local.properties
+
+# iOS/macOS build and dependency files
+ios/Pods/
+macos/Pods/
 
 # CocoaPods
 ios/Pods/
@@ -17,4 +24,8 @@ macos/Pods/
 # Local environment files (machine-specific)
 ios/.xcode.env.local
 macos/.xcode.env.local
+
+# Temporary files
 src/.DS_Store
+/node_modules
+/node_modules/@react-native
