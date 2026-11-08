@@ -7,6 +7,7 @@ node_modules/
 macos/build/
 ios/build/
 android/build/
+android/app/
 android/app/build/
 
 # Gradle files (Android build system)
