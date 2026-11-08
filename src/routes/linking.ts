@@ -1,10 +1,6 @@
-/** Link prefixes/domains for deep linking */
-const linkingPrefixes = [
-  'https://reactnativestarter.app',
-  'ReactNativeStarter://',
-];
+/** Default/Web deep linking configuration (fallback for platforms without specific linking.platform.ts) */
+import { linkingPrefixes } from './linking.shared';
 
-// FIXME: Better type
 export const linking = {
   prefixes: linkingPrefixes,
   config: {
