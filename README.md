@@ -51,8 +51,79 @@ Before publishing, replace the placeholder `maintainer` in `linux/electron-build
 - `yarn web:build` creates the web production bundle.
 - `yarn ios:pod:install` and `yarn macos:pod:install` install Apple platform pods.
 
+## Platform-Specific Files
+
+This project uses React Native's automatic module resolution to handle platform differences. You can create platform-specific implementations of any file by adding a platform extension.
+
+### How It Works
+
+When you import a module, React Native automatically selects the correct file based on the build target:
+
+```typescript
+import { MyComponent } from './MyComponent';
+```
+
+React Native looks for files in this order:
+1. `MyComponent.<platform>.ts(x)` - Platform-specific version
+2. `MyComponent.ts(x)` - Default fallback
+
+### Supported Platforms
+
+- `.ios` - iOS
+- `.android` - Android  
+- `.macos` - macOS
+- `.windows` - Windows
+- `.web` - Web
+- `.native` - Any native platform (iOS, Android, macOS, Windows)
+
+### Examples
+
+**Default component** - Works for all platforms:
+```
+src/screens/Home.tsx
+```
+
+**Platform-specific** - Customize for Android:
+```
+src/screens/Home.tsx          # Default
+src/screens/Home.android.tsx  # Android-specific override
+```
+
+**Multiple platforms** - Different implementations per platform:
+```
+src/screens/Home.tsx          # Default fallback
+src/screens/Home.ios.tsx      # iOS
+src/screens/Home.android.tsx  # Android
+src/screens/Home.windows.tsx  # Windows
+src/screens/Home.web.tsx      # Web
+```
+
+### Common Use Cases
+
+- **UI Components**: Different layouts, native components per platform
+- **Styling**: Platform-specific spacing, fonts, colors
+- **Deep Linking**: Platform-specific URL schemes and routing
+- **Navigation**: Native navigation patterns per platform
+- **Dependencies**: Platform-specific packages or implementations
+
+### Best Practice
+
+1. Create a default/base implementation: `Component.tsx`
+2. For platform-specific differences, create platform overrides: `Component.ios.tsx`, `Component.android.tsx`, etc.
+3. Import once, platform module resolution handles the rest
+
+No conditional logic or platform detection needed in your imports!
+
 ## Deep Linking
-Update the prefixes in `src/routes/linking.ts` and the platform URL configuration for your app domains. See the [React Navigation deep linking guide](https://reactnavigation.org/docs/deep-linking/).
+Update the platform-specific linking files in `src/routes/`:
+- `linking.ts` - Default/web configuration
+- `linking.ios.ts` - iOS-specific configuration
+- `linking.android.ts` - Android-specific configuration
+- `linking.macos.ts` - macOS-specific configuration
+- `linking.windows.ts` - Windows-specific configuration
+- `linking.web.ts` - Web-specific configuration
+
+See the [React Navigation deep linking guide](https://reactnavigation.org/docs/deep-linking/) for more details.
 
 ## Platforms
 - iOS and Android use the React Native CLI.
