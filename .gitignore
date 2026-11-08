@@ -1,5 +1,5 @@
 node_modules/
-public/assets/.DS_Store
+.DS_Store
 .dist/
 .jest/
 macos/build/
@@ -9,3 +9,12 @@ android/app/build/
 android/.gradle/
 /node_modules
 /node_modules/@react-native
+
+# CocoaPods
+ios/Pods/
+macos/Pods/
+
+# Local environment files (machine-specific)
+ios/.xcode.env.local
+macos/.xcode.env.local
+src/.DS_Store

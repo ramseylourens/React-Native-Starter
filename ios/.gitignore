@@ -1,0 +1,5 @@
+# CocoaPods
+Pods/
+
+# Xcode local environment
+.xcode.env.local
