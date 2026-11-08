@@ -61,8 +61,8 @@ export const Settings = () => {
                 <Pressable accessibilityRole="button" onPress={() => changeLanguage('en')} style={styles.action}>
                     <Text style={[styles.actionText, { color: theme.palette.onBackground }]}>{String(t('english'))}</Text>
                 </Pressable>
-                <Pressable accessibilityRole="button" onPress={() => changeLanguage('vi')} style={styles.action}>
-                    <Text style={[styles.actionText, { color: theme.palette.onBackground }]}>{String(t('vietnamese'))}</Text>
+                <Pressable accessibilityRole="button" onPress={() => changeLanguage('nl')} style={styles.action}>
+                    <Text style={[styles.actionText, { color: theme.palette.onBackground }]}>{String(t('dutch'))}</Text>
                 </Pressable>
             </View>
             <Text style={[styles.footer, { color: theme.palette.onBackground }]} accessibilityRole="header" aria-level="2">

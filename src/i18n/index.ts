@@ -3,7 +3,7 @@ import { initReactI18next } from 'react-i18next';
 import BrowserLanguageDetector from 'i18next-browser-languagedetector';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import transEN from './en/translation.json';
-import transVI from './vi/translation.json';
+import transNL from './nl/translation.json';
 import { Platform } from 'react-native';
 
 const nativeLanguageDetector = {
@@ -48,8 +48,8 @@ const options: InitOptions = {
     en: {
       translation: transEN,
     },
-    vi: {
-      translation: transVI,
+    nl: {
+      translation: transNL,
     },
   },
 };
