@@ -23,7 +23,7 @@ export const Home = () => {
                 accessibilityRole="header"
                 aria-level="2"
             >
-                {String(t('Home for Web'))}
+                {String(t('Home'))}
             </Text>
         </View>
     );
