@@ -10,6 +10,7 @@ ios/build/
 android/build/
 android/app/
 android/app/build/
+/linux/dist/
 
 # Gradle files (Android build system)
 android/.gradle/
