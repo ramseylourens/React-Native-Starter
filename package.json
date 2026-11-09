@@ -98,6 +98,7 @@
     "prettier": "^2.5.1",
     "react-dom": "19.2.0",
     "react-test-renderer": "19.2.0",
+    "terser-webpack-plugin": "5.3.0",
     "typescript": "^5.8.3",
     "url-loader": "^4.1.1",
     "watch": "^1.0.2",

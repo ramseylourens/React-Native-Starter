@@ -1,4 +1,5 @@
 require 'pathname'
+require 'json'
 
 ws_dir = Pathname.new(__dir__)
 ws_dir = ws_dir.parent until
@@ -10,7 +11,18 @@ prepare_react_native_project!
 
 target 'ReactNativeStarter-macOS' do
   platform :macos, '14.0'
-  use_native_modules!
+  excluded_macos_modules = ['react-native-safe-area-context', 'react-native-screens']
+  native_modules = list_native_modules!($default_command)
+  native_modules[:ios_packages].reject! { |package| excluded_macos_modules.include?(package[:name]) }
+  link_native_modules!(native_modules)
+
+  # macOS autolinking falls back to iOS and codegen uses the iOS target.
+  autolinking_path = File.join(__dir__, 'build/generated/autolinking/autolinking.json')
+  autolinking = JSON.parse(File.read(autolinking_path))
+  excluded_macos_modules.each do |name|
+    autolinking.fetch('dependencies').fetch(name).fetch('platforms')['ios'] = nil
+  end
+  File.write(autolinking_path, JSON.pretty_generate(autolinking))
 
   # Flags change depending on the env values.
   flags = get_default_flags()

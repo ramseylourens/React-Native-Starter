@@ -37,6 +37,17 @@ yarn web:dev
 
 `yarn macos` requires macOS. `yarn windows` requires Windows and Visual Studio. For Windows packaging, open `windows/ReactNativeStarter.sln` in Visual Studio and build the Release configuration. The native desktop targets were initialized with React Native Windows' New Architecture template.
 
+Metro preserves React Native CLI's platform resolver and resolves the experimental
+`react-native-screens` tab components to their web fallbacks on macOS and Windows
+because the package does not provide desktop implementations. The app uses React
+Navigation's JavaScript bottom tabs, not those experimental native tabs. Restart
+Metro after changing its configuration.
+
+On macOS, safe-area context uses its zero-inset desktop fallback. The macOS
+Podfile excludes the unsupported safe-area and screens native components from
+macOS autolinking and code generation; run `yarn macos:pod:install` and rebuild
+after changing the Podfile.
+
 ## Linux
 The Linux app is the web build packaged in an Electron shell located in `linux/` (not native UI).
 ```sh
@@ -44,6 +55,10 @@ yarn linux:install   # install the shell's dependencies
 yarn linux:dev       # build the web bundle and open it in Electron
 yarn linux:build     # produce linux/dist/*.AppImage and *.deb
 ```
+Electron may log GPU initialization errors even if it falls back to software
+rendering. If the window is blank, check the renderer's developer console for
+JavaScript errors.
+
 Before publishing, replace the placeholder `maintainer` in `linux/electron-builder.yml`, update `homepage` in `linux/package.json`, and add an app icon. CI (`.github/workflows/linux.yml`) builds the packages and runs a headless smoke test.
 
 ## Project Scripts

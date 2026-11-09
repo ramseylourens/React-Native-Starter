@@ -6,6 +6,22 @@ const path = require('node:path');
 const rnwPath = fs.realpathSync(
   path.resolve(require.resolve('react-native-windows/package.json'), '..'),
 );
+const screensPath = fs.realpathSync(
+  path.dirname(require.resolve('react-native-screens/package.json')),
+);
+const safeAreaPath = fs.realpathSync(
+  path.dirname(require.resolve('react-native-safe-area-context/package.json')),
+);
+const desktopTabsFallbacks = new Map([
+  [path.join(screensPath, 'src/components/tabs/host/index.ts'), './TabsHost'],
+  [path.join(screensPath, 'src/components/tabs/screen/index.ts'), './TabsScreen'],
+]);
+const macosSafeAreaFallbacks = new Map([
+  [path.join(safeAreaPath, 'src/SafeAreaContext.tsx'), './NativeSafeAreaProvider'],
+  [path.join(safeAreaPath, 'src/index.tsx'), './SafeAreaView'],
+]);
+const defaultConfig = getDefaultConfig(__dirname);
+const platformResolver = defaultConfig.resolver.resolveRequest;
 
 //
 
@@ -19,6 +35,25 @@ const rnwPath = fs.realpathSync(
 const config = {
   //
   resolver: {
+    resolveRequest: (context, moduleName, platform) => {
+      if (
+        platform === 'macos' &&
+        macosSafeAreaFallbacks.get(context.originModulePath) === moduleName
+      ) {
+        return context.resolveRequest(context, `${moduleName}.windows`, platform);
+      }
+
+      if (
+        (platform === 'macos' || platform === 'windows') &&
+        desktopTabsFallbacks.get(context.originModulePath) === moduleName
+      ) {
+        return context.resolveRequest(context, `${moduleName}.web`, platform);
+      }
+
+      return platformResolver
+        ? platformResolver(context, moduleName, platform)
+        : context.resolveRequest(context, moduleName, platform);
+    },
     blockList: [
       // This stops "npx @react-native-community/cli run-windows" from causing the metro server to crash if its already running
       new RegExp(
@@ -44,4 +79,4 @@ const config = {
   },
 };
 
-module.exports = mergeConfig(getDefaultConfig(__dirname), config);
+module.exports = mergeConfig(defaultConfig, config);

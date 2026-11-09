@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const TerserPlugin = require('terser-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -122,6 +123,8 @@ module.exports = {
    * Extract common dependencies into an existing entry chunk or an entirely new chunk.
    */
   optimization: {
+    // Terser 5.10 removes Immer's iterator binding when unused compression is enabled.
+    minimizer: [new TerserPlugin({ terserOptions: { compress: { unused: false } } })],
     splitChunks: {
       chunks: 'all', // Optimize all dynamically imported module or non-dynamically imported module.
       maxSize: 250000, // try to split chunks bigger than maxSize bytes into smaller parts

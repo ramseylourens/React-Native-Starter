@@ -2,6 +2,7 @@ node_modules/
 .DS_Store
 .dist/
 .jest/
+/linux/app/
 
 # Build artifacts
 macos/build/
