@@ -2,12 +2,15 @@ appId: com.reactnativestarter.desktop
 productName: React Native Starter
 directories:
   output: dist
+  buildResources: icons
 files:
   - main.js
   - app/**/*
+  - icons/icon.png
   - package.json
 asar: true
 linux:
+  icon: icon.png
   syncDesktopName: true
   target:
     - AppImage

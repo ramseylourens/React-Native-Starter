@@ -36,7 +36,8 @@
     "test:update": "jest --verbose --coverage --updateSnapshot",
     "test:watch": "jest --verbose --watch",
     "test:coverage": "jest --verbose --coverage && open ./.coverage/lcov-report/index.html",
-    "generate:icon": "npx app-icon generate -i public/assets/Icon.png",
+    "generate:icon": "node scripts/generate-assets.js icons",
+    "generate:assets": "node scripts/generate-assets.js all",
     "util:icons": "chrome https://akveo.github.io/eva-icons/#/",
     "test:windows": "jest --config jest.config.windows.js"
   },
